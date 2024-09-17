@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR1</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <form id="form">
+                <input id="i" type="text" placeholder="Введите ограничитель">
+                <input id="x" type="text" placeholder="Введите x">
+                <input class="button" onclick="integral()" type="submit" value="Отправить">
+            </form>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+    function integral() {
+        var i = Number(document.forms["form"].elements["i"].value);
+        var x = Number(document.forms["form"].elements["x"].value);
+        var sum = 0;
+
+        if (Math.abs(x) < i) {
+            for (var n = 0; n <= i; n++) {
+                sum += ((-1) ** n * (x ** (n + 2))) / ((n + 1) * (n + 2));
+            }
+            document.write("Результат: " + sum);
+        } else {
+            document.write("Ограничитель должен быть больше x");
+        }
+    }
+</script>
+
+<style type="text/css">
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    
+    input[type="text"], input[type="submit"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+    
+    #result {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+</html>
